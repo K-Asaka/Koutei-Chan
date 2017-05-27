@@ -1,7 +1,7 @@
 package jp.ac.chiba_fjb.app.koutei_chan.Controller;
 
-import jp.ac.chiba_fjb.app.koutei_chan.Model.BotModel;
-import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.Bot.BotModel;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.MessageModel;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.ModeModel;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.PostModel;
 

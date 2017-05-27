@@ -10,11 +10,10 @@ import com.github.bassaer.chatmessageview.models.Message;
 import com.github.bassaer.chatmessageview.models.User;
 import com.github.bassaer.chatmessageview.utils.ChatBot;
 import com.github.bassaer.chatmessageview.views.ChatView;
-import com.github.bassaer.chatmessageview.views.MessageView;
 
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.logging.Handler;
+import jp.ac.chiba_fjb.app.koutei_chan.Controller.ChatController;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.MessageModel;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.TextMessage;
 import jp.ac.chiba_fjb.app.koutei_chan.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,6 +40,14 @@ public class MainActivity extends AppCompatActivity {
         mChatView.setOnClickSendButtonListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // TODO: Modelと繋げる
+                // TODO: ここは本当はユーザからの値を入れる
+                TextMessage userMessage = new TextMessage("test");
+                ChatController chatController = new ChatController(userMessage);
+                chatController.post();
+                MessageModel kouteiChanMessage = chatController.reply();
+
                 //new message
                 Message message = new Message.Builder()
                         .setUser(me)
@@ -59,9 +66,7 @@ public class MainActivity extends AppCompatActivity {
                         .setRightMessage(false)
                         .setMessageText(ChatBot.talk(me.getName(), message.getMessageText()))
                         .build();
-
             }
-
         });
     }
 }
