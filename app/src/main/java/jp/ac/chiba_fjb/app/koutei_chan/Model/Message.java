@@ -1,4 +1,4 @@
-package jp.ac.chiba_fjb.app.koutei_chan;
+package jp.ac.chiba_fjb.app.koutei_chan.Model;
 
 
 public class Message {

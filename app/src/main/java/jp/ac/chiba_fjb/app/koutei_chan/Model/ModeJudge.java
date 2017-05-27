@@ -1,4 +1,8 @@
-package jp.ac.chiba_fjb.app.koutei_chan;
+package jp.ac.chiba_fjb.app.koutei_chan.Model;
+
+import jp.ac.chiba_fjb.app.koutei_chan.Model.Bot;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.KouteiChan;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.Message;
 
 public class ModeJudge {
     private boolean questionFlag = false;

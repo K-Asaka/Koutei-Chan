@@ -1,4 +1,6 @@
-package jp.ac.chiba_fjb.app.koutei_chan;
+package jp.ac.chiba_fjb.app.koutei_chan.Model;
+
+import jp.ac.chiba_fjb.app.koutei_chan.Model.Message;
 
 public class PostModel {
 

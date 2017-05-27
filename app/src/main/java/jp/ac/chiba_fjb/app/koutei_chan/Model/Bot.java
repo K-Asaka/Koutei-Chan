@@ -1,6 +1,9 @@
-package jp.ac.chiba_fjb.app.koutei_chan;
+package jp.ac.chiba_fjb.app.koutei_chan.Model;
 
-abstract class Bot {
+import jp.ac.chiba_fjb.app.koutei_chan.Model.ImageMessage;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.TextMessage;
+
+abstract public class Bot {
     abstract public Message reply();
 }
 

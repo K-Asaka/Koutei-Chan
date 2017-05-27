@@ -1,11 +1,16 @@
-package jp.ac.chiba_fjb.app.koutei_chan;
+package jp.ac.chiba_fjb.app.koutei_chan.Controller;
 
-public class ChatModel {
+import jp.ac.chiba_fjb.app.koutei_chan.Model.Bot;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.Message;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.ModeJudge;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.PostModel;
+
+public class ChatController {
 
     private Bot botInstance;
     private Message userMessage;
 
-    public ChatModel(Message userMessage) {
+    public ChatController(Message userMessage) {
         this.userMessage = userMessage;
     }
 
