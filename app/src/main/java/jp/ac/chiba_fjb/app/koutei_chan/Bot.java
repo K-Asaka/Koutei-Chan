@@ -8,7 +8,7 @@ class KouteiChan extends Bot {
 
     @Override
     public Message reply() {
-        Message botMessage = new TextMessage();
+        Message botMessage = new TextMessage("");
 
         // TODO: DBからbotのメッセージを取得する
 
@@ -19,8 +19,8 @@ class KouteiChan extends Bot {
 class GazouChan extends Bot {
 
     @Override
-    public Message reply()git  {
-        return null;
+    public Message reply() {
+        return new ImageMessage();
     }
 }
 
@@ -28,6 +28,6 @@ class ShitsumonChan extends Bot {
 
     @Override
     public Message reply() {
-        return null;
+        return new TextMessage("");
     }
 }
