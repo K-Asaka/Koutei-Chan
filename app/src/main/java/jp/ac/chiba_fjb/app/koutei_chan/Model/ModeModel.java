@@ -22,7 +22,7 @@ public class ModeModel {
 
         Log.d("モード", "入った！");
 
-        if ( userMessage.getMessage().indexOf("ari") >= 0 ) {
+        if ( userMessage.getMessage().indexOf("ありがとう") >= 0 ) {
             Log.d("モード", "ありがとう");
             // モードを肯定ちゃんにする
             realm.beginTransaction();
@@ -36,7 +36,7 @@ public class ModeModel {
             return new ShitsumonChan();
         }
 
-        if ( userMessage.getMessage().indexOf("situ") >= 0 ) {
+        if ( userMessage.getMessage().indexOf("質問") >= 0 ) {
             Log.d("モード", "質問モード");
             // モードを質問ちゃんにする
             realm.beginTransaction();
