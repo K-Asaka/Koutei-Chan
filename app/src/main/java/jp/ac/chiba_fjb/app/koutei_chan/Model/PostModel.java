@@ -1,12 +1,12 @@
 package jp.ac.chiba_fjb.app.koutei_chan.Model;
 
-import jp.ac.chiba_fjb.app.koutei_chan.Model.Message;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel;
 
 public class PostModel {
 
-    private Message message;
+    private MessageModel message;
 
-    public PostModel(Message message) {
+    public PostModel(MessageModel message) {
         this.message = message;
     }
 

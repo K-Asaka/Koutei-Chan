@@ -4,14 +4,14 @@ import jp.ac.chiba_fjb.app.koutei_chan.Model.ImageMessage;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.TextMessage;
 
 abstract public class BotModel {
-    abstract public Message reply();
+    abstract public MessageModel reply();
 }
 
 class KouteiChan extends BotModel {
 
     @Override
-    public Message reply() {
-        Message botMessage = new TextMessage("");
+    public MessageModel reply() {
+        MessageModel botMessage = new TextMessage("");
 
         // TODO: DBからbotのメッセージを取得する
 
@@ -22,7 +22,7 @@ class KouteiChan extends BotModel {
 class GazouChan extends BotModel {
 
     @Override
-    public Message reply() {
+    public MessageModel reply() {
         return new ImageMessage();
     }
 }
@@ -30,7 +30,7 @@ class GazouChan extends BotModel {
 class ShitsumonChan extends BotModel {
 
     @Override
-    public Message reply() {
+    public MessageModel reply() {
         return new TextMessage("");
     }
 }

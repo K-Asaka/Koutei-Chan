@@ -1,16 +1,16 @@
 package jp.ac.chiba_fjb.app.koutei_chan.Controller;
 
 import jp.ac.chiba_fjb.app.koutei_chan.Model.BotModel;
-import jp.ac.chiba_fjb.app.koutei_chan.Model.Message;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.ModeModel;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.PostModel;
 
 public class ChatController {
 
     private BotModel botInstance;
-    private Message userMessage;
+    private MessageModel userMessage;
 
-    public ChatController(Message userMessage) {
+    public ChatController(MessageModel userMessage) {
         this.userMessage = userMessage;
     }
 
@@ -25,10 +25,10 @@ public class ChatController {
     // 投稿内容からモード (肯定, 質問, 画像) を判断
     // Botのメッセージ取得して、DBに投稿
     // Botのメッセージを返す
-    public Message reply() {
+    public MessageModel reply() {
         ModeModel mode = new ModeModel();
         BotModel bot = mode.judge(this.userMessage);
-        Message botMessage = bot.reply();
+        MessageModel botMessage = bot.reply();
         PostModel postModel = new PostModel(botMessage);
         postModel.send();
 

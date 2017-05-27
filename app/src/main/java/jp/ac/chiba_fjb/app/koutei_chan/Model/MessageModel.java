@@ -1,11 +1,11 @@
 package jp.ac.chiba_fjb.app.koutei_chan.Model;
 
 
-public class Message {
+public class MessageModel {
 
 }
 
-class TextMessage extends Message {
+class TextMessage extends MessageModel {
     private String message;
 
     public TextMessage(String message) {
@@ -14,7 +14,7 @@ class TextMessage extends Message {
     }
 }
 
-class ImageMessage extends Message {
+class ImageMessage extends MessageModel {
     public ImageMessage() {
         super();
     }
