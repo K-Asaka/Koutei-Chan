@@ -3,6 +3,7 @@
     package="jp.ac.chiba_fjb.app.koutei_chan">
 
     <application
+        android:name=".Activity.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
