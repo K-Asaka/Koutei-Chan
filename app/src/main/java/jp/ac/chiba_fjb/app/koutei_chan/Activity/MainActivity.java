@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
         int MyId = 0;
         Bitmap Myicon = BitmapFactory.decodeResource(getResources(), R.drawable.akane);
-        String Myname = "kawasi";
+        String Myname = "あなた";
 
         int YouId =1;
         Bitmap  Youicon = BitmapFactory.decodeResource(getResources(), R.drawable.aoi);
-        String Youname = "javasone";
+        String Youname = "肯定ちゃん";
 
         final User me = new User(MyId, Myname,Myicon );
         final User you = new User(YouId, Youname,Youicon);
