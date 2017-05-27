@@ -13,27 +13,31 @@ public class ChatModel {
 
     }
 
-    public void post(PostData postData) {
+    public void post(UserMessage userMessage) {
         // TODO: 投稿されたデータに対する処理を追加する
 
         // DBへ正常に追加されたかどうかのチェック
     }
 
-    public PostData reply() {
+    public UserMessage reply() {
 
     }
 
 }
 
-class PostData {
+class UserMessage {
 }
 
-class PostText extends PostData {
-    public PostText(String message) {
+class UserText extends UserMessage {
+    public UserText(String message) {
         super();
     }
 }
 
-class PostImage extends PostData {
+class UserImage extends UserMessage {
+    public UserImage() {
+        super();
+    }
 }
+
 
