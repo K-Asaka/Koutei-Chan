@@ -25,13 +25,13 @@ public class PostModel {
         realm.commitTransaction();
 
         // TODO: デバッグ用
-//        RealmResults<Post> results = realm.where(Post.class).findAll();
-//        for ( int i=0 ; i < results.size() ; i++ ) {
-//            Post test = results.get(i);
-//            Log.d(i + "番目のユーザ", "##############");
-//            Log.d("userId", String.valueOf(test.getUserId()));
-//            Log.d("message", test.getMessage());
-//        }
+        RealmResults<Post> results = realm.where(Post.class).findAll();
+        for ( int i=0 ; i < results.size() ; i++ ) {
+            Post test = results.get(i);
+            Log.d(i + "番目のユーザ", "##############");
+            Log.d("userId", String.valueOf(test.getUserId()));
+            Log.d("message", test.getMessage());
+        }
     }
 
 }
