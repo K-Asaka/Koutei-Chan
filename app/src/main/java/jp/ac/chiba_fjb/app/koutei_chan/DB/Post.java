@@ -4,10 +4,10 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 public class Post extends RealmObject {
-    private int id;
+    private int id; // TODO: これいらないかも
     private int userId;
     private String message;
-    private int timestamp;
+    private int timestamp; // TODO: とりあえず使わない
 
     public int getId() {
         return id;
