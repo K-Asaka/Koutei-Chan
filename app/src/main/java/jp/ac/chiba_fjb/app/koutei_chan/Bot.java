@@ -1,13 +1,13 @@
 package jp.ac.chiba_fjb.app.koutei_chan;
 
 abstract class Bot {
-    abstract public UserMessage reply();
+    abstract public Message reply();
 }
 
 class KouteiChan extends Bot {
 
     @Override
-    public UserMessage reply() {
+    public Message reply() {
         return null;
     }
 }
@@ -15,7 +15,7 @@ class KouteiChan extends Bot {
 class GazouChan extends Bot {
 
     @Override
-    public UserMessage reply() {
+    public Message reply() {
         return null;
     }
 }
@@ -23,7 +23,7 @@ class GazouChan extends Bot {
 class ShitsumonChan extends Bot {
 
     @Override
-    public UserMessage reply() {
+    public Message reply() {
         return null;
     }
 }

@@ -5,13 +5,13 @@ public class Message {
 }
 
 class TextMessage extends Message {
-    public UserText(String message) {
+    public TextMessage(String message) {
         super();
     }
 }
 
 class ImageMessage extends Message {
-    public UserImage() {
+    public ImageMessage() {
         super();
     }
 }
