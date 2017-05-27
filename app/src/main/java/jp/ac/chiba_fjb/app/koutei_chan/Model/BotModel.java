@@ -3,11 +3,11 @@ package jp.ac.chiba_fjb.app.koutei_chan.Model;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.ImageMessage;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.TextMessage;
 
-abstract public class Bot {
+abstract public class BotModel {
     abstract public Message reply();
 }
 
-class KouteiChan extends Bot {
+class KouteiChan extends BotModel {
 
     @Override
     public Message reply() {
@@ -19,7 +19,7 @@ class KouteiChan extends Bot {
     }
 }
 
-class GazouChan extends Bot {
+class GazouChan extends BotModel {
 
     @Override
     public Message reply() {
@@ -27,7 +27,7 @@ class GazouChan extends Bot {
     }
 }
 
-class ShitsumonChan extends Bot {
+class ShitsumonChan extends BotModel {
 
     @Override
     public Message reply() {
