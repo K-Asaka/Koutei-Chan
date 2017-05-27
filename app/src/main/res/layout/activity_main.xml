@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.chiba_fjb.app.koutei_chan.MainActivity">
+    tools:context="jp.ac.chiba_fjb.app.koutei_chan.Activity.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
