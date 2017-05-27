@@ -1,4 +1,4 @@
-package jp.ac.chiba_fjb.app.koutei_chan;
+package jp.ac.chiba_fjb.app.koutei_chan.Activity;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,6 +15,7 @@ import com.github.bassaer.chatmessageview.views.MessageView;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Handler;
+import jp.ac.chiba_fjb.app.koutei_chan.R;
 
 public class MainActivity extends AppCompatActivity {
     private ChatView mChatView;
