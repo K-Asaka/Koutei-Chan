@@ -30,14 +30,32 @@ public class MyApplication extends Application {
                 .build();
         Realm.setDefaultConfiguration(config);
 
-        // 初期データ投入
+        // ---------- 初期データ投入
         Realm realm = Realm.getDefaultInstance();
-        String[] phrases = {"初期データ１だよ！", "初期データ２だよ！", "初期データ３だよ！"};
-        for ( String phrase : phrases ) {
+
+        // ユーザの初期モード (肯定)
+        realm.beginTransaction();
+        Mode mode = realm.createObject(Mode.class);
+        mode.setMode(Mode.KOUTEI);
+        realm.commitTransaction();
+
+        // 肯定ちゃんの肯定フレーズ
+        String[] kouteiPhrases = {"肯定データ１だよ！", "肯定データ２だよ！", "肯定データ３だよ！"};
+        for ( String phrase : kouteiPhrases ) {
             realm.beginTransaction();
             Bot bot = realm.createObject(Bot.class);
             bot.setPhrase(phrase);
             bot.setMode(Mode.KOUTEI);
+            realm.commitTransaction();
+        }
+
+        // 質問ちゃんの肯定フレーズ
+        String[] sitsumonPhrases = {"質問データ１だよ！", "質問データ２だよ！", "質問データ３だよ！"};
+        for ( String phrase : sitsumonPhrases ) {
+            realm.beginTransaction();
+            Bot bot = realm.createObject(Bot.class);
+            bot.setPhrase(phrase);
+            bot.setMode(Mode.SITSUMON);
             realm.commitTransaction();
         }
     }
