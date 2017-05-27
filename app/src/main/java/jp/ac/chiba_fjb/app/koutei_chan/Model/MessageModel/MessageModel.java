@@ -1,6 +1,9 @@
 package jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel;
 
 
-abstract public class MessageModel {
+public interface MessageModel {
+    // TODO: ImageMessageは画像ファイル名でも返す
+    String getMessage();
+    int getUserId();
 }
 

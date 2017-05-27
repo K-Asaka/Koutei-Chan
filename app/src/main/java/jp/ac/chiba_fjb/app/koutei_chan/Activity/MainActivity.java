@@ -14,6 +14,7 @@ import com.github.bassaer.chatmessageview.views.ChatView;
 import jp.ac.chiba_fjb.app.koutei_chan.Controller.ChatController;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.MessageModel;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.TextMessage;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.UserId;
 import jp.ac.chiba_fjb.app.koutei_chan.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // TODO: Modelと繋げる
                 // TODO: ここは本当はユーザからの値を入れる
-                TextMessage userMessage = new TextMessage("test");
+                TextMessage userMessage = new TextMessage(mChatView.getInputText(), UserId.PLAYER);
                 ChatController chatController = new ChatController(userMessage);
                 chatController.post();
                 MessageModel kouteiChanMessage = chatController.reply();

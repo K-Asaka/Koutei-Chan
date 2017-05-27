@@ -2,15 +2,12 @@ package jp.ac.chiba_fjb.app.koutei_chan.Model.Bot;
 
 import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.MessageModel;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.TextMessage;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.UserId;
 
-/**
- * Created by allen on 2017/05/28.
- */
-
-public class ShitsumonChan extends BotModel {
+public class ShitsumonChan implements BotModel {
 
     @Override
     public MessageModel reply() {
-        return new TextMessage("");
+        return new TextMessage("", UserId.KOUTEI);
     }
 }
