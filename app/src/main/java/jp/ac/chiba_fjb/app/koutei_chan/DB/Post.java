@@ -1,9 +1,9 @@
 package jp.ac.chiba_fjb.app.koutei_chan.DB;
 
+import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Post {
-    @PrimaryKey
+public class Post extends RealmObject {
     private int id;
     private int userId;
     private String message;
