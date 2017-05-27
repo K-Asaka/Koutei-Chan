@@ -1,7 +1,9 @@
 package jp.ac.chiba_fjb.app.koutei_chan.Controller;
 
+import jp.ac.chiba_fjb.app.koutei_chan.Model.Bot.BotModel;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.MessageModel;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.TextMessage;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.ModeModel;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.PostModel;
 
 public class ChatController {
@@ -21,15 +23,17 @@ public class ChatController {
     // Botのメッセージ取得して、DBに投稿
     // Botのメッセージを返す
     public MessageModel reply() {
-//        ModeModel mode = new ModeModel();
-//        BotModel bot = mode.judge(this.userMessage);
-//        MessageModel botMessage = bot.reply();
-//        PostModel postModel = new PostModel(botMessage);
-//        postModel.save();
-//
-//        return botMessage;
+        // TODO: 初期データ入れてから着手
+        ModeModel mode = new ModeModel();
+        BotModel bot = mode.judge(this.userMessage);
+        MessageModel botMessage = bot.reply();
+        PostModel postModel = new PostModel(botMessage);
+        postModel.save();
+
+        return botMessage;
+
         // TODO: コンパイル通す用
-        return new TextMessage("", 1);
+//        return new TextMessage("", 1);
     }
 
 }

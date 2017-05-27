@@ -2,12 +2,10 @@ package jp.ac.chiba_fjb.app.koutei_chan.Activity;
 
 import android.app.Application;
 
-import io.realm.DynamicRealm;
-import io.realm.FieldAttribute;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-import io.realm.RealmMigration;
-import io.realm.RealmSchema;
+import jp.ac.chiba_fjb.app.koutei_chan.DB.Bot;
+import jp.ac.chiba_fjb.app.koutei_chan.DB.Mode;
 
 // アプリ起動時に呼ばれる, Realmの初期化
 public class MyApplication extends Application {
@@ -27,9 +25,15 @@ public class MyApplication extends Application {
         config = new RealmConfiguration.Builder()
                 .deleteRealmIfMigrationNeeded()
                 .build();
-
         Realm.setDefaultConfiguration(config);
 
-
+        // 初期データ投入
+        // TODO: フレーズを配列に入れてeachする
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        Bot bot = realm.createObject(Bot.class);
+        bot.setPhrase("初期データです。");
+        bot.setMode(Mode.KOUTEI);
+        realm.commitTransaction();
     }
 }

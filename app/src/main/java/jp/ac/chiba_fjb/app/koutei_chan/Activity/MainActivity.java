@@ -41,32 +41,29 @@ public class MainActivity extends AppCompatActivity {
         mChatView.setOnClickSendButtonListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                // TODO: Modelと繋げる
-                // TODO: ここは本当はユーザからの値を入れる
+                // ユーザの入力をDBに保存, 肯定ちゃんの返信をDBから取得
                 TextMessage userMessage = new TextMessage(mChatView.getInputText(), UserId.PLAYER);
                 ChatController chatController = new ChatController(userMessage);
                 chatController.post();
                 MessageModel kouteiChanMessage = chatController.reply();
 
-                //new message
+                // ユーザの発言を表示
                 Message message = new Message.Builder()
                         .setUser(me)
                         .setRightMessage(true)
                         .setMessageText(mChatView.getInputText())
                         .hideIcon(true)
                         .build();
-                //Set to chat view
                 mChatView.send(message);
-                //Reset edit text
                 mChatView.setInputText("");
 
-                //Receive message
+                // 肯定ちゃんの発言を表示
                 final Message receivedMessage = new Message.Builder()
                         .setUser(you)
                         .setRightMessage(false)
-                        .setMessageText(ChatBot.talk(me.getName(), message.getMessageText()))
+                        .setMessageText(kouteiChanMessage.getMessage())
                         .build();
+                mChatView.send(receivedMessage);
             }
         });
     }

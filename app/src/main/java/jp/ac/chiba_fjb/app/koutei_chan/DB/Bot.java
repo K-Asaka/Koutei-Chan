@@ -4,7 +4,7 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 public class Bot extends RealmObject {
-    private int id;
+    private int id; // TODO: いらないかも
     private String phrase;
     private int mode;
 
