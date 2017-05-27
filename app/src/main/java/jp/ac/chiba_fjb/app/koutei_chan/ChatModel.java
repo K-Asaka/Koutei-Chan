@@ -15,7 +15,9 @@ public class ChatModel {
     }
 
     public Message reply() {
+
         return null;
+
     }
 
 }
