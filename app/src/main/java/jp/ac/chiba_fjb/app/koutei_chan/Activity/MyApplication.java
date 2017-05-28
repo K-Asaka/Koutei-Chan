@@ -42,10 +42,8 @@ public class MyApplication extends Application {
         String[] kouteiPhrases = {
                 "そうだね！",
                 "うんうん",
-                "もっと聞かせて！",
-                "一緒に頑張ろうね！",
-                "私をそう思うよ！",
-                "なるほど！"
+                "私もそう思うよ！",
+                "確かに！"
         };
         for ( String phrase : kouteiPhrases ) {
             realm.beginTransaction();
