@@ -2,6 +2,7 @@ package jp.ac.chiba_fjb.app.koutei_chan.Activity;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +21,7 @@ import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.TextMessage;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.UserId;
 import jp.ac.chiba_fjb.app.koutei_chan.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     private ChatView mChatView;
 
     @Override

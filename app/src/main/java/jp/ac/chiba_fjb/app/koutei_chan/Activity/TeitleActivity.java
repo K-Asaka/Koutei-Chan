@@ -1,13 +1,13 @@
 package jp.ac.chiba_fjb.app.koutei_chan.Activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
 import jp.ac.chiba_fjb.app.koutei_chan.R;
 
-public class TeitleActivity extends AppCompatActivity {
+public class TeitleActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
