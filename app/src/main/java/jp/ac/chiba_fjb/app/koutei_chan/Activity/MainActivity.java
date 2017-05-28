@@ -19,6 +19,7 @@ import org.w3c.dom.Text;
 
 import jp.ac.chiba_fjb.app.koutei_chan.Controller.ChatController;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.MessageModel;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.MessageType;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.TextMessage;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.UserId;
 import jp.ac.chiba_fjb.app.koutei_chan.R;
@@ -36,7 +37,7 @@ public class MainActivity extends Activity {
         String Myname = "あなた";
 
         int YouId =1;
-        Bitmap  Youicon = BitmapFactory.decodeResource(getResources(), R.drawable.aoi);
+        final Bitmap  Youicon = BitmapFactory.decodeResource(getResources(), R.drawable.cat1);
         String Youname = "肯定ちゃん";
 
         final User me = new User(MyId, Myname,Myicon );
@@ -65,22 +66,24 @@ public class MainActivity extends Activity {
                 mChatView.send(message);
                 mChatView.setInputText("");
 
-                // 肯定ちゃんの発言を表示
-                final Message receivedMessage = new Message.Builder()
-                        .setUser(you)
-                        .setRightMessage(false)
-                        .setMessageText(kouteiChanMessage.getMessage())
-                        .build();
-                mChatView.send(receivedMessage);
-
-//                Message imgMessage = new Message.Builder()
-//                        .setUser(you)
-//                        .setRightMessage(false)
-//                        .setMessageText("おっぱい")
-//                        .setPicture() // Set picture
-////                        .setType(Message.Type.PICTURE) //Set Message Type
-//                        .build();
-//                mChatView.send(imgMessage);
+                if ( kouteiChanMessage.getType() == MessageType.TEXT ) {
+                    // 肯定ちゃんの発言を表示
+                    final Message receivedMessage = new Message.Builder()
+                            .setUser(you)
+                            .setRightMessage(false)
+                            .setMessageText(kouteiChanMessage.getMessage())
+                            .build();
+                    mChatView.send(receivedMessage);
+                } else {
+                    // 肯定ちゃんの発言を表示
+                    final Message receivedMessage = new Message.Builder()
+                            .setUser(you)
+                            .setRightMessage(false)
+                            .setType(Message.Type.PICTURE)
+                            .setPicture(BitmapFactory.decodeResource(getResources(), kouteiChanMessage.getImage()))
+                            .build();
+                    mChatView.send(receivedMessage);
+                }
             }
         });
     }
