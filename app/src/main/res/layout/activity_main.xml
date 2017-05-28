@@ -49,6 +49,7 @@
         android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:background="@drawable/twitter"
+        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
