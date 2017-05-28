@@ -11,6 +11,13 @@ import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.TextMessage;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.UserId;
 
 public class ShitsumonChan implements BotModel {
+    private String defaultMessage = "";
+
+    public ShitsumonChan(String defaultMessage) {
+        this.defaultMessage = defaultMessage;
+    }
+
+    public ShitsumonChan() { }
 
     @Override
     public MessageModel reply() {
@@ -19,9 +26,15 @@ public class ShitsumonChan implements BotModel {
                 .equalTo("mode", Mode.SITSUMON)
                 .findAll();
 
-        Random rmd = new Random();
-        Bot bot = results.get(rmd.nextInt(results.size()));
-        MessageModel botMessage = new TextMessage(bot.getPhrase(), UserId.KOUTEI);
+        MessageModel botMessage;
+        // デフォルトのメッセージがあればそれを出す
+        if (this.defaultMessage == "" ) {
+            Random rmd = new Random();
+            Bot bot = results.get(rmd.nextInt(results.size()));
+            botMessage = new TextMessage(bot.getPhrase(), UserId.KOUTEI);
+        } else {
+            botMessage = new TextMessage(this.defaultMessage, UserId.KOUTEI);
+        }
 
         return botMessage;
     }
