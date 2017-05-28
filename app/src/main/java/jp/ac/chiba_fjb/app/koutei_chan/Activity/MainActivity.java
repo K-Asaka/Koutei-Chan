@@ -70,14 +70,14 @@ public class MainActivity extends AppCompatActivity {
                         .build();
                 mChatView.send(receivedMessage);
 
-                Message imgMessage = new Message.Builder()
-                        .setUser(you)
-                        .setRightMessage(false)
-                        .setMessageText("おっぱい")
-                        .setPicture(picture) // Set picture
-//                        .setType(Message.Type.PICTURE) //Set Message Type
-                        .build();
-                mChatView.send(imgMessage);
+//                Message imgMessage = new Message.Builder()
+//                        .setUser(you)
+//                        .setRightMessage(false)
+//                        .setMessageText("おっぱい")
+//                        .setPicture() // Set picture
+////                        .setType(Message.Type.PICTURE) //Set Message Type
+//                        .build();
+//                mChatView.send(imgMessage);
             }
         });
     }
