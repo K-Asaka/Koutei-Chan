@@ -87,21 +87,4 @@ public class MainActivity extends Activity {
             }
         });
     }
-    public void onClick(View view){
-        // リスト表示用のアラートダイアログ
-        final CharSequence[] items = {"item1", "item2", "item3"};
-        AlertDialog.Builder listDlg = new AlertDialog.Builder(this);
-        listDlg.setTitle("タイトル");
-        listDlg.setItems(
-                items,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // リスト選択時の処理
-                        // which は、選択されたアイテムのインデックス
-                    }
-                });
-
-        // 表示
-        listDlg.create().show();
-    }
 }
