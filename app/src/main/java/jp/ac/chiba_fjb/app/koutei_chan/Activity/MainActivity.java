@@ -3,8 +3,14 @@ package jp.ac.chiba_fjb.app.koutei_chan.Activity;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
+import android.graphics.Color;
+//import android.support.v4.content.ContextCompat;
+
 import android.app.Activity;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,9 +51,15 @@ public class MainActivity extends Activity {
 
         mChatView = (ChatView)findViewById(R.id.chat_view);
 
+        mChatView.setRightBubbleColor(ContextCompat.getColor(this, R.color.gray300));
+        mChatView.setLeftBubbleColor(Color.argb(150,255,255,0));
+        mChatView.setRightMessageTextColor(Color.BLACK);
+        mChatView.setLeftMessageTextColor(Color.BLACK);
+
         mChatView.setOnClickSendButtonListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 // ユーザの入力をDBに保存, 肯定ちゃんの返信をDBから取得
                 TextMessage userMessage = new TextMessage(mChatView.getInputText(), UserId.PLAYER);
                 ChatController chatController = new ChatController(userMessage);
