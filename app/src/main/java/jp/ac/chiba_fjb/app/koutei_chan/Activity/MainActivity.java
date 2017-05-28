@@ -5,11 +5,14 @@ import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.github.bassaer.chatmessageview.models.Message;
 import com.github.bassaer.chatmessageview.models.User;
 import com.github.bassaer.chatmessageview.utils.ChatBot;
 import com.github.bassaer.chatmessageview.views.ChatView;
+
+import org.w3c.dom.Text;
 
 import jp.ac.chiba_fjb.app.koutei_chan.Controller.ChatController;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.MessageModel;
@@ -54,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
                         .setMessageText(mChatView.getInputText())
                         .hideIcon(true)
                         .build();
+                TextView textView = (TextView)findViewById(R.id.textView);
+                textView.setText("");
                 mChatView.send(message);
                 mChatView.setInputText("");
 
