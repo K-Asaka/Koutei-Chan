@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         mChatView.setOnClickSendButtonListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 // ユーザの入力をDBに保存, 肯定ちゃんの返信をDBから取得
                 TextMessage userMessage = new TextMessage(mChatView.getInputText(), UserId.PLAYER);
                 ChatController chatController = new ChatController(userMessage);
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 Message imgMessage = new Message.Builder()
                         .setUser(you)
                         .setRightMessage(false)
-                        .setMessageText("おっぱい")
+                        .setMessageText("")
                         .setPicture(picture) // Set picture
 //                        .setType(Message.Type.PICTURE) //Set Message Type
                         .build();

@@ -40,7 +40,13 @@ public class MyApplication extends Application {
         realm.commitTransaction();
 
         // 肯定ちゃんの肯定フレーズ
-        String[] kouteiPhrases = {"肯定データ１だよ！", "肯定データ２だよ！", "肯定データ３だよ！"};
+        String[] kouteiPhrases = {
+                "そうだね！",
+                "やっぱり格が違うよね！",
+                "うんうん",
+                "もっと聞かせて！",
+                "一緒に頑張ろうね！"
+        };
         for ( String phrase : kouteiPhrases ) {
             realm.beginTransaction();
             Bot bot = realm.createObject(Bot.class);
@@ -50,7 +56,11 @@ public class MyApplication extends Application {
         }
 
         // 質問ちゃんの肯定フレーズ
-        String[] sitsumonPhrases = {"質問データ１だよ！", "質問データ２だよ！", "質問データ３だよ！"};
+        String[] sitsumonPhrases = {
+                "質問データ１だよ！",
+                "質問データ２だよ！",
+                "質問データ３だよ！"
+        };
         for ( String phrase : sitsumonPhrases ) {
             realm.beginTransaction();
             Bot bot = realm.createObject(Bot.class);
