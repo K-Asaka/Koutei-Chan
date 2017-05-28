@@ -45,7 +45,13 @@ public class MyApplication extends Application {
                 "やっぱり格が違うよね！",
                 "うんうん",
                 "もっと聞かせて！",
-                "一緒に頑張ろうね！"
+                "一緒に頑張ろうね！",
+                "すごーい！",
+                "さすがです！",
+                "私をそう思うよ！",
+                "説得力あるな〜",
+                "なるほど！",
+                "安心だね！",
         };
         for ( String phrase : kouteiPhrases ) {
             realm.beginTransaction();
@@ -57,9 +63,9 @@ public class MyApplication extends Application {
 
         // 質問ちゃんの肯定フレーズ
         String[] sitsumonPhrases = {
-                "質問データ１だよ！",
-                "質問データ２だよ！",
-                "質問データ３だよ！"
+                "ふむふむ",
+                "なるほど",
+                "そうなんだね"
         };
         for ( String phrase : sitsumonPhrases ) {
             realm.beginTransaction();
