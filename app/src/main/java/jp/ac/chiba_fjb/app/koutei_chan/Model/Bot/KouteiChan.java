@@ -11,6 +11,13 @@ import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.TextMessage;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.UserId;
 
 public class KouteiChan implements BotModel {
+    private String defaultMessage = "";
+
+    public KouteiChan(String defaultMessage) {
+        this.defaultMessage = defaultMessage;
+    }
+
+    public KouteiChan() { }
 
     @Override
     public MessageModel reply() {
@@ -19,10 +26,16 @@ public class KouteiChan implements BotModel {
                 .equalTo("mode", Mode.KOUTEI)
                 .findAll();
 
-        Random rmd = new Random();
-        Bot bot = results.get(rmd.nextInt(results.size()));
+        // デフォルトのメッセージがあればそれを出す
+        MessageModel botMessage;
+        if (this.defaultMessage == "" ) {
+            Random rmd = new Random();
+            Bot bot = results.get(rmd.nextInt(results.size()));
+            botMessage = new TextMessage(bot.getPhrase(), UserId.KOUTEI);
+        } else {
+            botMessage = new TextMessage(this.defaultMessage, UserId.KOUTEI);
+        }
 
-        MessageModel botMessage = new TextMessage(bot.getPhrase(), UserId.KOUTEI);
         return botMessage;
     }
 }

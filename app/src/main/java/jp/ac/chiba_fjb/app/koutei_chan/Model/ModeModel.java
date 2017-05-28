@@ -24,7 +24,7 @@ public class ModeModel {
             realm.beginTransaction();
             mode.setMode(Mode.KOUTEI);
             realm.commitTransaction();
-            return new KouteiChan();
+            return new KouteiChan("どういたしまして！");
         }
 
         // 質問ちゃん
@@ -38,7 +38,7 @@ public class ModeModel {
             realm.beginTransaction();
             mode.setMode(Mode.SITSUMON);
             realm.commitTransaction();
-            return new ShitsumonChan();
+            return new ShitsumonChan("どうしたの？");
         }
 
         // 画像ちゃん
