@@ -5,5 +5,7 @@ public interface MessageModel {
     // TODO: ImageMessageは画像ファイル名でも返す
     String getMessage();
     int getUserId();
+    int getImage();
+    int getType();
 }
 

@@ -13,6 +13,7 @@ import com.github.bassaer.chatmessageview.views.ChatView;
 
 import jp.ac.chiba_fjb.app.koutei_chan.Controller.ChatController;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.MessageModel;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.MessageType;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.TextMessage;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.UserId;
 import jp.ac.chiba_fjb.app.koutei_chan.R;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         String Myname = "あなた";
 
         int YouId =1;
-        Bitmap  Youicon = BitmapFactory.decodeResource(getResources(), R.drawable.aoi);
+        final Bitmap  Youicon = BitmapFactory.decodeResource(getResources(), R.drawable.cat1);
         String Youname = "肯定ちゃん";
 
         final User me = new User(MyId, Myname,Myicon );
@@ -57,13 +58,25 @@ public class MainActivity extends AppCompatActivity {
                 mChatView.send(message);
                 mChatView.setInputText("");
 
-                // 肯定ちゃんの発言を表示
-                final Message receivedMessage = new Message.Builder()
-                        .setUser(you)
-                        .setRightMessage(false)
-                        .setMessageText(kouteiChanMessage.getMessage())
-                        .build();
-                mChatView.send(receivedMessage);
+                // TODO: Messageタイプを見て、画像なら画像表示、テキストならテキスト表示 (kouteiChanMessage.getType() == MessageType.TEXT)
+                if ( kouteiChanMessage.getType() == MessageType.TEXT ) {
+                    // 肯定ちゃんの発言を表示
+                    final Message receivedMessage = new Message.Builder()
+                            .setUser(you)
+                            .setRightMessage(false)
+                            .setMessageText(kouteiChanMessage.getMessage())
+                            .build();
+                    mChatView.send(receivedMessage);
+                } else {
+                    // 肯定ちゃんの発言を表示
+                    final Message receivedMessage = new Message.Builder()
+                            .setUser(you)
+                            .setRightMessage(false)
+                            .setType(Message.Type.PICTURE)
+                            .setPicture(BitmapFactory.decodeResource(getResources(), kouteiChanMessage.getImage()))
+                            .build();
+                    mChatView.send(receivedMessage);
+                }
             }
         });
     }
