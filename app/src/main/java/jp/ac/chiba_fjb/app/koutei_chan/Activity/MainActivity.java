@@ -2,6 +2,8 @@ package jp.ac.chiba_fjb.app.koutei_chan.Activity;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
         mChatView = (ChatView)findViewById(R.id.chat_view);
 
+        mChatView.setRightBubbleColor(ContextCompat.getColor(this, R.color.gray300));
+        mChatView.setLeftBubbleColor(Color.argb(150,255,255,0));
+        mChatView.setRightMessageTextColor(Color.BLACK);
+        mChatView.setLeftMessageTextColor(Color.BLACK);
+
         mChatView.setOnClickSendButtonListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,15 +72,15 @@ public class MainActivity extends AppCompatActivity {
                         .setMessageText(kouteiChanMessage.getMessage())
                         .build();
                 mChatView.send(receivedMessage);
-
-                Message imgMessage = new Message.Builder()
-                        .setUser(you)
-                        .setRightMessage(false)
-                        .setMessageText("")
-                        .setPicture(picture) // Set picture
-//                        .setType(Message.Type.PICTURE) //Set Message Type
-                        .build();
-                mChatView.send(imgMessage);
+//
+//                Message imgMessage = new Message.Builder()
+//                        .setUser(you)
+//                        .setRightMessage(false)
+////                        .setMessageText("")
+////                        .setPicture(picture) // Set picture
+////                        .setType(Message.Type.PICTURE) //Set Message Type
+//                        .build();
+//                mChatView.send(imgMessage);
             }
         });
     }
