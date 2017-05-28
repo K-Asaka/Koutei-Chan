@@ -23,12 +23,12 @@ public class ModeModel {
         Log.d("モード", "入った！");
 
         if ( userMessage.getMessage().indexOf("ありがとう") >= 0 ) {
-            Log.d("モード", "ありがとう");
+                Log.d("モード", "ありがとう");
             // モードを肯定ちゃんにする
             realm.beginTransaction();
             mode.setMode(Mode.KOUTEI);
             realm.commitTransaction();
-            return new KouteiChan();
+            return new KouteiChan("どういたしまして！");
         }
 
         if ( mode.getMode() == Mode.SITSUMON ) {
@@ -37,12 +37,12 @@ public class ModeModel {
         }
 
         if ( userMessage.getMessage().indexOf("質問") >= 0 ) {
-            Log.d("モード", "質問モード");
+                Log.d("モード", "質問モード");
             // モードを質問ちゃんにする
             realm.beginTransaction();
             mode.setMode(Mode.SITSUMON);
             realm.commitTransaction();
-            return new ShitsumonChan();
+            return new ShitsumonChan("どうしたの？");
         }
 
         Log.d("モード", "肯定ちゃん");
