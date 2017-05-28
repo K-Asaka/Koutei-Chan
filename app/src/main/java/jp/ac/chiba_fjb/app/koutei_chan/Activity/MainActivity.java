@@ -1,25 +1,36 @@
 package jp.ac.chiba_fjb.app.koutei_chan.Activity;
 
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
 import android.graphics.Color;
+//import android.support.v4.content.ContextCompat;
+
+import android.app.Activity;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.github.bassaer.chatmessageview.models.Message;
 import com.github.bassaer.chatmessageview.models.User;
 import com.github.bassaer.chatmessageview.utils.ChatBot;
 import com.github.bassaer.chatmessageview.views.ChatView;
 
+import org.w3c.dom.Text;
+
 import jp.ac.chiba_fjb.app.koutei_chan.Controller.ChatController;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.MessageModel;
+import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.MessageType;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.MessageModel.TextMessage;
 import jp.ac.chiba_fjb.app.koutei_chan.Model.UserId;
 import jp.ac.chiba_fjb.app.koutei_chan.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     private ChatView mChatView;
 
     @Override
@@ -32,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         String Myname = "あなた";
 
         int YouId =1;
-        Bitmap  Youicon = BitmapFactory.decodeResource(getResources(), R.drawable.aoi);
+        final Bitmap  Youicon = BitmapFactory.decodeResource(getResources(), R.drawable.cat1);
         String Youname = "肯定ちゃん";
 
         final User me = new User(MyId, Myname,Myicon );
@@ -62,25 +73,29 @@ public class MainActivity extends AppCompatActivity {
                         .setMessageText(mChatView.getInputText())
                         .hideIcon(true)
                         .build();
+                TextView textView = (TextView)findViewById(R.id.textView);
+                textView.setText("");
                 mChatView.send(message);
                 mChatView.setInputText("");
 
-                // 肯定ちゃんの発言を表示
-                final Message receivedMessage = new Message.Builder()
-                        .setUser(you)
-                        .setRightMessage(false)
-                        .setMessageText(kouteiChanMessage.getMessage())
-                        .build();
-                mChatView.send(receivedMessage);
-//
-//                Message imgMessage = new Message.Builder()
-//                        .setUser(you)
-//                        .setRightMessage(false)
-////                        .setMessageText("")
-////                        .setPicture(picture) // Set picture
-////                        .setType(Message.Type.PICTURE) //Set Message Type
-//                        .build();
-//                mChatView.send(imgMessage);
+                if ( kouteiChanMessage.getType() == MessageType.TEXT ) {
+                    // 肯定ちゃんの発言を表示
+                    final Message receivedMessage = new Message.Builder()
+                            .setUser(you)
+                            .setRightMessage(false)
+                            .setMessageText(kouteiChanMessage.getMessage())
+                            .build();
+                    mChatView.send(receivedMessage);
+                } else {
+                    // 肯定ちゃんの発言を表示
+                    final Message receivedMessage = new Message.Builder()
+                            .setUser(you)
+                            .setRightMessage(false)
+                            .setType(Message.Type.PICTURE)
+                            .setPicture(BitmapFactory.decodeResource(getResources(), kouteiChanMessage.getImage()))
+                            .build();
+                    mChatView.send(receivedMessage);
+                }
             }
         });
     }
